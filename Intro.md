@@ -70,7 +70,8 @@ Cringe game engine user vs chad game engine developer.
 
 ## Setup Guide
 
-If you dont like my example images you can read the [official setup](https://github.com/libsdl-org/SDL/blob/main/docs/INTRO-visualstudio.md)
+The [official setup](https://github.com/libsdl-org/SDL/blob/main/docs/INTRO-visualstudio.md) is a bit missleading and does not go over everything needed,
+stick to this page to avoid an extra headache.
 
 ### Prerequisites
 
@@ -79,9 +80,71 @@ If you dont like my example images you can read the [official setup](https://git
   
 ### Installing SDL3
 
-1. Get the [SourceCode](https://github.com/libsdl-org/SDL/releases/latest)
+1. Get the [SourceCode](https://github.com/libsdl-org/SDL/releases/latest) make sure to pick SDL3-devel-(verision)-VC.zip
+<img src="images/correctversion.PNG" width="50%">
 2. Create a new empty vs project
-3. Build and install  
+<img src="images/EmptyProj.PNG" width="50%">
+3. Create a new main.cpp file and paste in a complete AI generated game, alt. the example below.
+<details>
+<summary>main.cpp</summary>
+
+ ```cpp
+#include <SDL3/SDL.h>
+#include <iostream>
+
+int main(int argc, char* argv[]) {
+
+    //Init SDL core
+    if (!SDL_Init(SDL_INIT_VIDEO)) {
+        std::cerr << "SDL Init Failed: " << SDL_GetError() << '\n';
+        return 1;
+    }
+
+    //Cool window
+    SDL_Window* window = SDL_CreateWindow("WINDOW_TITLE", 800, 600, 0);
+    //lovely error handling
+    if (!window) {
+       
+        std::cerr << "Window Creation Failed: " << SDL_GetError() << '\n';
+        SDL_Quit();
+        return;
+    }
+
+    //temp input check to close the window
+    bool running = true;
+    SDL_Event event;
+    while (running) {
+        while (SDL_PollEvent(&event)) {
+            switch (event.type) {
+            case SDL_EVENT_QUIT:
+                running = false;
+                break;
+            case SDL_EVENT_KEY_DOWN:
+                if (event.key.key == SDLK_ESCAPE)
+                    running = false;
+                break;
+            default:
+                break;
+            }
+        }
+    }
+
+    //Clean
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    return;
+}
+```
+</details>
+
+4. Link the following SDL files to the additional include directories and dependancies.
+<table>
+  <tr>
+    <td  width="33%"><img src="images\includedir.PNG"/></td>
+    <td  width="33%"><img src="images\SDLlib.PNG"/></td>
+    <td  width="33%"><img src="images\SDLlib2.PNG"/></td>
+  </tr>
+</table>
 
 ### Verifying Your Installation
 
