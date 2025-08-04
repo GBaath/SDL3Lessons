@@ -1,9 +1,9 @@
 # Lesson 01 – Introduction to SDL3
 
-<img src="https://www.libsdl.org/images/SDL-logo.png" alt="SDL3 Logo" width="100%">
+<img src="https://chihacknight.org/images/blog/remote-hack-night-hackerman.gif" width="100%">
 
-> *"Forgive my poor formatting."*  
-> – **Gustav Bååth**
+> *"If they can't make their own game engine, they are not programmers."*  
+> – **Notch**
 
 ---
 
@@ -45,10 +45,9 @@ Cringe game engine user vs chad game engine developer.
 
 #### You get to:
 - Rarely blame anyone but yourself for your bugs
-- Feel really good about yourself when you make progress
+- Find a burst slight of joy when progress is made
 - Learn to downscope harder than ever before
 - Sit at the grown up table
-- [Avoid getting bullied by notch](https://x.com/notch/status/1879635187572838836?lang=en)
 
 ### Actual points to consider:
 - Skip hidden black box logic
