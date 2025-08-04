@@ -7,13 +7,24 @@
 
 ---
 
-## What Is SDL3?
+## Wth Is SDL3?
 
-A brief overview of the **Simple DirectMedia Layer version 3** and its role in multimedia and game development.
+Simple DirectMedia Layer is a library made to provide access to hardware components.
+For our purposes, a tool to skip the boring parts of making a game engine.
 
-- **Purpose and scope**  
-- **Core features**  
-- **Supported platforms**
+- Open source, in C
+- Native support for C++
+- Other languages we don't care about for now
+
+*Features include but not limited too*:
+- Graphics Rendering
+- Audio Playback
+- Input Handling
+- Multithreading & Timers
+- Netwworking (We'll skip this, but its here)
+- Extentions/Plugins
+- Headaches
+- Making you a pro coder
 
 ---
 
