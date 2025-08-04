@@ -79,8 +79,8 @@ If you dont like my example images you can read the [official setup](https://git
   
 ### Installing SDL3
 
-1. Clone the SDL3 repository  
-2. Configure with CMake (or your build tool)  
+1. Get the [SourceCode](https://github.com/libsdl-org/SDL/releases/latest)
+2. Create a new empty vs project
 3. Build and install  
 
 ### Verifying Your Installation
