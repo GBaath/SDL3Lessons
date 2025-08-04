@@ -97,7 +97,7 @@ int main(int argc, char* argv[]) {
     //Init SDL core
     if (!SDL_Init(SDL_INIT_VIDEO)) {
         std::cerr << "SDL Init Failed: " << SDL_GetError() << '\n';
-        return 1;
+        return 0;
     }
 
     //Cool window
@@ -107,7 +107,7 @@ int main(int argc, char* argv[]) {
        
         std::cerr << "Window Creation Failed: " << SDL_GetError() << '\n';
         SDL_Quit();
-        return;
+        return 0;
     }
 
     //temp input check to close the window
@@ -132,8 +132,9 @@ int main(int argc, char* argv[]) {
     //Clean
     SDL_DestroyWindow(window);
     SDL_Quit();
-    return;
+    return 0;
 }
+
 ```
 </details>
 
@@ -153,17 +154,21 @@ int main(int argc, char* argv[]) {
    
 ---
 
+## Adding Extentions
+
+
+
+
 ## What’s Next
 
-- **Lesson 02**: Creating a Window and Renderer  
-- **Lesson 03**: Handling Input and Events  
-- **Lesson 04**: Textures, Sprites, and Animation  
-- **Lesson 05**: Audio Playback and Mixing  
+- **Lesson 2**: Graphics and input 
+- **Lesson 3**: Collision and timers
+- **Lesson 4**:  Camera, Audio & files
 
 ---
 
 ## References & Resources
 
 - [Official SDL3 Documentation](https://wiki.libsdl.org/)  
-- [SDL3 GitHub Repository](https://github.com/libsdl-org/SDL)  
-- Community tutorials and forums (e.g., Reddit, StackOverflow, GameDev.net)  
+- [SDL3 GitHub Repository](https://github.com/libsdl-org/SDL)
+- Write to an LLM
