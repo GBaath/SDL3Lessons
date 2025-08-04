@@ -2,8 +2,8 @@
 
 <img src="https://www.libsdl.org/images/SDL-logo.png" alt="SDL3 Logo" width="100%">
 
-> *"A thin layer of simplicity over powerful multimedia capabilities."*  
-> – **Sam Lantinga**
+> *"Forgive my poor formatting."*  
+> – **Gustav Bååth**
 
 ---
 
@@ -58,27 +58,25 @@ Cringe game engine user vs chad game engine developer.
 
 ---
 
-## How Learning SDL3 Sharpens Your Coding Skills
+## Cool things you'll learn
 
-The transferable skills you’ll develop by working close to the metal.
-
+- C++ syntax
 - Manual resource management  
-- Event-driven design patterns  
-- Cross-platform compilation and debugging  
-- Understanding rendering and audio pipelines  
+- Rendering and audio pipelines  
 
----
+----
+
+# Let's get grinding
 
 ## Setup Guide
 
-Step-by-step instructions to get SDL3 up and running on your machine.
+If you dont like my example images you can read the [official setup](https://github.com/libsdl-org/SDL/blob/main/docs/INTRO-visualstudio.md)
 
 ### Prerequisites
 
-- C compiler (GCC, Clang, MSVC, etc.)  
-- CMake or your build system of choice  
-- Git  
-
+- Visual Studio
+- An internet connection
+  
 ### Installing SDL3
 
 1. Clone the SDL3 repository  
