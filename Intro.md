@@ -28,26 +28,33 @@ For our purposes, a tool to skip the boring parts of making a game engine.
 
 ---
 
-## Key Changes from SDL2
+## Changes from SDL2
 
-A high-level summary of the most impactful API and architectural updates.
+A bunch of architectural changes, header restructuring, and other things we don't need to think about.
 
-- Modular header structure  
-- Renamed and refactored rendering functions  
-- New audio streaming API  
-- Enhanced input and device handling  
-- Modern C99 compliance  
+#### The key takeaway:
+
+Double check wether the youtube tutorial is made for the new version before wasting 3 hours of your life debugging and getting shamed in the video comments
 
 ---
 
 ## SDL3 vs. Game Engines
 
-How SDL3 compares with full-fledged engines like **Unity** or **Unreal**, and when to choose each.
+This is like comparing a car to a warehouse of parts.
+Cringe game engine user vs chad game engine developer.
 
-- Level of abstraction  
-- Control and flexibility  
-- Performance considerations  
-- Learning curve  
+#### You get to:
+- Rarely blame anyone but yourself for your bugs
+- Feel really good about yourself when you make progress
+- Learn to downscope harder than ever before
+- Sit at the grown up table
+- [Avoid getting bullied by notch](https://x.com/notch/status/1879635187572838836?lang=en)
+
+### Actual points to consider:
+- Skip hidden black box logic
+- Decide the game loops yourself
+- Preformant af
+- Knowing how a game engine works obviously makes you better at using one (skilldif)
 
 ---
 
