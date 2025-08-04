@@ -146,11 +146,11 @@ int main(int argc, char* argv[]) {
   </tr>
 </table>
 
-### Verifying Your Installation
+5. Clone the SDL.dll from SDL/lib/x64 to 'ProjectName'/x64/Debug
+<img src="images/cloneddll.PNG" width="40%">
 
-- Compile and run the “hello window” example  
-- Check library versions and include paths  
-
+6. Build and run B)
+   
 ---
 
 ## What’s Next
