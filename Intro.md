@@ -1,4 +1,4 @@
-# Lesson 01 – Introduction to SDL3
+# Lesson 1 – SDL3 Intro
 
 <img src="https://chihacknight.org/images/blog/remote-hack-night-hackerman.gif" width="100%">
 
