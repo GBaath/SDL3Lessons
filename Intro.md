@@ -155,7 +155,9 @@ int main(int argc, char* argv[]) {
 
 ## Adding Extentions
 
-
+The process for adding extentions is the same as for adding the main library, find the latests releases at the SDL3 [Libraries](https://wiki.libsdl.org/SDL3/Libraries).
+At this point, many of the extentions don't yet have a finished release for SDL3, though can still be compiled locally.
+But since that's a pain to go through, we can leech the code from mmozeiko and [skip the annoying parts.](https://github.com/mmozeiko/build-sdl3/releases/latest)
 
 
 ## What’s Next
@@ -170,4 +172,5 @@ int main(int argc, char* argv[]) {
 
 - [Official SDL3 Documentation](https://wiki.libsdl.org/)  
 - [SDL3 GitHub Repository](https://github.com/libsdl-org/SDL)
+- [Lazy Foo' SDL3 Tutorials](https://lazyfoo.net/tutorials/SDL3/index.php)
 - Write to an LLM
