@@ -1,12 +1,13 @@
 # Lesson 2 – Graphics and Input
 
+<img src="https://i.makeagif.com/media/12-04-2018/1egKJm.gif" width="100%">
+
+> *"Wanna sprite cranberry?"*  
+> – **Lebron James**
+
 ---
 
-## Intro
-
----
-
-## Key Concepts
+## Concepts
 
 - Rendering basics
 - Sprite management
