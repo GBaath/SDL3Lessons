@@ -285,6 +285,15 @@ Not much more to add, except needing to initialize the gamepad system.
 
 ---
 
+## Very Optional Assignment B)
+
+Make the lil' sprite move
+
+<img src="images/imnotseeingenoughmovement.gif" width="25%">
+
+Or try and make sense of make code example below. (cheat)
+
+---
 ## Code Example
 
 <details>
