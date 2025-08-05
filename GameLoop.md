@@ -1,4 +1,4 @@
-<img width="128" height="135" alt="image" src="https://github.com/user-attachments/assets/1fb77bd5-fe0e-4276-8f46-54070fee7853" /># Lesson 2 – Graphics and Input
+# Lesson 2 – Graphics and Input
 
 ---
 
@@ -77,7 +77,9 @@ We can obviously move the location by tweaking the x & y values on the FRect.
 
 SDL_FRect{x, y, 64, 64}
 
-#### Sprite clipping and stretching
+----
+
+### Sprite clipping and stretching
 
 The same goes for the scale, just tweak the w and h components of the struct.
 
@@ -85,14 +87,20 @@ SDL_FRect{100, 100, w, h}
 
 We can also partially render our sprite on the rect by specifying a source rect on the selected texture.
 Imagine it as a rect place over the selected texture as a mask.
-
-<img src="images/sourcerect.PNG" width="50%">
+<table>
+  <tr>
+    <td  width="50%"><img src="images\sourcerect.PNG"/></td>
+    <td  width="50%"><img src="images\widebro.PNG"/></td>
+  </tr>
+</table>
 
 sourcerect = SDL_FRect{0, 0, 32, 64}
 
 (This is how we will be splitting sprite maps)
 
-#### Color keying for transparancy
+### Color keying for transparancy
+
+----
 
 If we want to key a part of our surface, for transparency we use the SDL_Surface struct and map some color values.
 
@@ -123,14 +131,16 @@ We could also flip it and key out the black pixels.
   </tr>
 </table>
 
-#### Rotation
+----
+
+### Rotation
 
 If we need to rotate our sprite we use RenderTextureRotated, we cna also flip our sprite with supplied params.
 We obviously have to make it spinso we will increment the angle param overtime B).
 
 SDL_RenderTextureRotated(ren, sprite, NULL, dst, angle, NULL, SDL_FLIP_NONE);
 
-<img src="images/spin.gif" width="50%">
+<img src="images/spin.gif" width="25%">
 
 ---
 
