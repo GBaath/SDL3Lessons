@@ -1,4 +1,4 @@
-# Lesson 3 – Collision, Application Time, Timers & Framerate
+# Lesson 3 – File Splitting, Application Time, Timers & Framerate
 
 ---
 
@@ -8,18 +8,27 @@
 
 ## Key Concepts
 
-- Collision shapes & responses
+- Modular codebase structure
+- Inheritance & polymorphism
 - Delta time handling
 - Scheduled callbacks
 - Frame pacing strategies
 
 ---
 
-## Collision Detection
+## File Splitting
 
-- Axis-Aligned Bounding Box (AABB)
-- Circle vs Rectangle
-- Spatial partitioning techniques
+- Header vs source separation
+- Module organization
+- Include guards vs #pragma once
+
+---
+
+## Class Inheritance
+
+- Base and derived classes
+- Virtual functions & overrides
+- Abstract classes & interfaces
 
 ---
 
@@ -53,3 +62,4 @@
 <summary>main.cpp</summary>  
 
 ```cpp
+// SDL3 modular timing skeleton
