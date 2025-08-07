@@ -9,10 +9,8 @@
 ## Key Concepts
 
 - Modular codebase structure
-- Inheritance & polymorphism
 - Delta time handling
 - Scheduled callbacks
-- Frame pacing strategies
 
 ---
 
