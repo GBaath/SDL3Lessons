@@ -162,8 +162,95 @@ tldr; just put #pragma once and don't worry about it until building for somethin
 ## Class Inheritance
 
 ### Base and derived classes
-### Virtuals & overrides
-### Smart pointers
+
+Works just like in C#, just with some different syntax.
+We keep our overrideable functions virtual, and our variables protected to keep them avaliable.
+
+
+<details>
+<summary>GameObject.h</summary>
+
+ ```cpp
+
+#pragma once
+#include <SDL3/SDL.h>
+
+class GameObject {
+public:
+    GameObject( SDL_Renderer* renderer, int x, int y, int w, int h);
+    GameObject( SDL_Renderer* renderer, int x, int y, int w, int h,SDL_Texture* texture);
+    ~GameObject();
+
+    virtual void HandleEvent(const SDL_Event& e);
+    virtual void Render();
+    virtual void Update(float DeltaTime, float ScaledDeltaTime);
+    virtual void SetPosition(int x, int y);
+
+protected:
+    SDL_Renderer* renderer = nullptr;
+    SDL_FRect rect;
+    SDL_Texture* texture = nullptr;
+};
+
+
+```
+</details>
+
+
+Notice how we need to specify an access level when we inherit, if set to private, we won't be able to access Player as a GameObject, and only the overrides or new members in Player.
+the ovveride keyword is also after the the function.
+<details>
+<summary>Player.h</summary>
+
+ ```cpp
+
+#pragma once
+#include "GameObject.h"
+#include "InputManager.h"
+
+class Player : public GameObject {
+public:
+	Player(SDL_Renderer* renderer, int x, int y, int w, int h, SDL_Texture* texture) : GameObject(renderer, x, y, w, h, texture) {	};
+	~Player() {};
+
+
+	virtual void Update(float DeltaTime, float ScaledDeltaTime) override;
+
+};
+
+
+
+```
+</details>
+
+### Pointers
+
+Pointers are declared by putting * after the classname. This means the variable hold the memory adress of the contained type. Thus, are completely unreadable and if not dereferenced by putting * *infront*.
+Class* ptr; //Read as as memory adress
+*ptr; //read as the value contained
+When accessing data in pointer references we use the -> operator.
+If we have 2 pointer with the same value/adress, theese are functionally identical, modifying one will modify both.
+We can also achive this with a *reference*.
+For instance if we want to out put several values from a function we can input references to non->pointer variable and reading the value after we get the return value.
+
+ <details>
+<summary>Player.h</summary>
+
+ ```cpp
+
+int a = 0;
+int b = 0;
+
+int ModifyAB(int& ref, int value);
+
+a = ModifyAB(b, 1); 
+
+//both a & b will equal 1
+
+
+```
+</details>
+
 
 ---
 
