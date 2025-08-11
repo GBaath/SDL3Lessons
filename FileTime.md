@@ -138,9 +138,24 @@ Adding a new include directory means we have to include it in our project, like 
 
 ### Include guards vs #pragma once
 
+To avoid circular dependancies in our headers we use include guards or #pragma ince.
+We need them to prevent our program from becomming a ouroborus and creating a singularity in our cpu.
+For instance, if class a has a reference to class b and vice versa, when compiling, they will get infinetly stacked on top of eachother and a *sick* explosion will occur.
+
+#### Include guards always work B)
+
+#ifndef	“If not defined…”
+
+#define	Define a unique macro so the header gets locked
+
+#endif	End of the conditional section
+
+#### In some rare case, maybe if you're coding on a samsung smart frigde, this won't work.
+
+#pragma once
 
 
-
+tldr; just put #pragma once and don't worry about it until building for something wierd.
 
 ---
 
