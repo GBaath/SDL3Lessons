@@ -6,18 +6,18 @@
 
 ---
 
-## Key Concepts
+## Concepts
 
-- Modular codebase structure
-- Delta time handling
-- Scheduled callbacks
+- C++ Files & Inheritance
+- Keeping it modular
+- Framerate
 
 ---
 
-## File Splitting
+## Files
 
-- Header vs source separation
-- Module organization
+- Headers & Source
+- Include paths
 - Include guards vs #pragma once
 
 ---
@@ -25,14 +25,14 @@
 ## Class Inheritance
 
 - Base and derived classes
-- Virtual functions & overrides
-- Abstract classes & interfaces
+- Virtuals & overrides
+- Smart pointers
 
 ---
 
 ## Application Time
 
-- Calculating delta time
+- Locking framrate
 - Time scaling and slow motion
 - Pause and resume mechanics
 
@@ -43,14 +43,6 @@
 - One-shot timers
 - Repeating timers
 - Integrating callbacks into game loop
-
----
-
-## Framerate Management
-
-- Fixed timestep loop
-- Frame rate capping
-- VSync configuration
 
 ---
 
