@@ -226,10 +226,13 @@ public:
 ### Pointers
 
 Pointers are declared by putting * after the classname. This means the variable hold the memory adress of the contained type. Thus, are completely unreadable and if not dereferenced by putting * *infront*.
+
 Class* ptr; //Read as as memory adress
 *ptr; //read as the value contained
+
 When accessing data in pointer references we use the -> operator.
 If we have 2 pointer with the same value/adress, theese are functionally identical, modifying one will modify both.
+
 We can also achive this with a *reference*.
 For instance if we want to out put several values from a function we can input references to non->pointer variable and reading the value after we get the return value.
 
