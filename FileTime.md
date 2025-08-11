@@ -241,7 +241,10 @@ For instance if we want to out put several values from a function we can input r
 int a = 0;
 int b = 0;
 
-int ModifyAB(int& ref, int value);
+int ModifyAB(int& ref, int value){
+    ref = value;
+    return ref;
+}
 
 a = ModifyAB(b, 1); 
 
@@ -251,11 +254,11 @@ a = ModifyAB(b, 1);
 ```
 </details>
 
+It might take a while to wrap your head around, my advice is to make wierd analogies about your code to an LLM until it clicks in your brain.
 
 ---
 
 ## Application Time
-
 ### Locking framrate
 ### Time scaling
 
