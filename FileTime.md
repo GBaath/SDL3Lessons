@@ -262,7 +262,15 @@ It might take a while to wrap your head around, my advice is to make wierd analo
 ---
 
 ## Application Time
+
+So that we actually can add something new this time, we'll throw in a bit of framerate lore.
+Easiest way to do it is to delay the gameloop thread with SDL_Delay.
+There's also support for timers and multithreading, but we have search engines for a reason B)
+
 ### Locking framrate
+
+
+
 ### Time scaling
 
 ---
