@@ -1,4 +1,8 @@
 # Lesson 3 – File Splitting, Application Time, Timers & Framerate
+<img src="https://64.media.tumblr.com/dd77151a8a469ac9410a06417d2eb609/tumblr_nopx25y1zs1rt8r50o1_400.gif" width="100%">
+
+> *"Jarvis, generate me a SDL3 gameloop in a main.cpp"*  
+> – **Ironman**
 
 ---
 
