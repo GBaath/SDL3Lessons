@@ -2,10 +2,6 @@
 
 ---
 
-## Intro
-
----
-
 ## Concepts
 
 - Axis-Aligned Bounding Boxes (AABB)
@@ -115,6 +111,9 @@ void Player::Move(float dX, float dY, const ExampleCube& exCube)
 
 What we're doing here is after shifting our react with the movement input,
 check against our referenced example obstacle, and if overlapping, shove our rect back to where it came from.
+
+<img src="images/vsExCube.PNG" width="50%">
+
 
 ## Camera
 
