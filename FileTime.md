@@ -269,16 +269,223 @@ There's also support for timers and multithreading, but we have search engines f
 
 ### Locking framrate
 
+Without specifying any delays, the main thread will try and execute as fast as possible.
+We'll define a new struct for all our framedata in our game header.
+<details>
+<summary>FrameData</summary>
+
+ ```cpp
+
+struct FrameData {
+    int framecnt = 0;
+    const Uint32 frameDelay = 1000 / 60;
+    Uint32 frameStart = 0;
+    Uint32 frameTime = 0;
+    Uint64 lastTime = 0;
+    float timeScale = 1.f;
+    float deltaTime = 0;
+    float scaledDeltaTime = 0;
+    
+};
+
+```
+</details>
+In our our update function, we save the current application milliseconds for reference, convert it to seconds to calculate our deltatime.
+After updating all our relevant gameobjects, we calculate our frametime, after which we use SDL_Delay with the remaining time of our frame delay.
+<details>
+<summary>Update</summary>
+
+ ```cpp
+
+void Game::Update() {
+    Uint64 now = SDL_GetTicks();
+    fdata.deltaTime = (now - fdata.lastTime) / 1000.0f; //seconds
+    fdata.lastTime = now;
+
+    //Time scale
+    fdata.scaledDeltaTime = fdata.deltaTime * fdata.timeScale;
+
+    //update all gos
+    for (GameObject* go : gameObjects) {
+        go->Update(fdata.deltaTime,fdata.scaledDeltaTime);
+    }
+
+
+    //delay to fps target
+    fdata.frameStart = SDL_GetTicks();
+    fdata.framecnt++;
+
+    fdata.frameTime = SDL_GetTicks() - fdata.frameStart;
+
+    if (fdata.frameTime < fdata.frameDelay) {
+        SDL_Delay(fdata.frameDelay - fdata.frameTime);
+    }
+}
+
+```
+</details>
 
 
 ### Time scaling
+
+Throwing in an extra timescale variable will allow us to dynamically change the speed of certains things without affecting the actual framerate.
+Our game will still run in 60 fps, but using our scaledDeltaTime we can for example add slow-mo and so on.
 
 ---
 
 ## Code Example
 
-<details>  
-<summary>main.cpp</summary>  
+Your code will probably/hopefully look a bit different than mine at this point, but these are parts of lessons 2's example code, split into more managable size.
 
-```cpp
-// SDL3 modular timing skeleton
+<details>
+<summary>main.cpp</summary>
+
+ ```cpp
+
+#include "Game.h"
+#include "GameObject.h"
+#include "ExampleCube.h"
+#include "Player.h"
+#include <SDL3/SDL.h>
+#include <SDL3/SDL_image.h>
+
+int main(int argc, char** argv) {
+
+    Game game;
+
+    if (!game.Init("Game", 800, 600)) {
+        return -1;
+    }
+
+    //add cool sprite
+    SDL_Renderer* ren = game.GetRenderer();
+    if (ren) {
+        //tranparency
+        SDL_Surface* surf = IMG_Load("player.bmp");
+        //yeet all color
+        SDL_SetSurfaceColorKey(surf, true, SDL_MapSurfaceRGB(surf, 255, 255, 255)) == false;
+        //new texture from modified surface
+        SDL_Texture* keyed = SDL_CreateTextureFromSurface(ren, surf);
+        //overwrite sprite
+        auto sprite = SDL_CreateTextureFromSurface(ren, surf);
+
+        SDL_DestroySurface(surf);
+        game.AddGameObject(new Player(ren,0,0,50,50,sprite));
+
+        //temp display cube
+        auto blank = SDL_CreateTexture(ren, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET, 50, 50);
+        game.AddGameObject(new ExampleCube( ren, 50, 50, 50, 50,blank));
+    }
+    else
+        GameObject player(game.GetRenderer(), 0, 0, 50, 50);
+
+
+
+
+    while (game.running()) {
+        game.HandleEvents();
+        game.Update();
+        game.Render();
+    }
+
+    game.Quit();
+    return 0;
+}
+
+```
+</details>
+<details>
+<summary>Game.cpp</summary>
+
+ ```cpp
+
+#include "Game.h"
+#include "InputManager.h"
+#include <iostream>
+
+Game::Game() {}
+Game::~Game() {}
+
+bool Game::Init(const std::string& title, int width, int height) {
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMEPAD) == 0) {
+        std::cerr << "Init Error: " << SDL_GetError() << "\n";
+        return false;
+    }
+
+    window = SDL_CreateWindow(title.c_str(), width, height, SDL_WINDOW_RESIZABLE);
+    if (!window) {
+        std::cerr << "Window Error: " << SDL_GetError() << "\n";
+        return false;
+    }
+
+    renderer = SDL_CreateRenderer(window, NULL);
+    if (!renderer) {
+        std::cerr << "Renderer Error: " << SDL_GetError() << "\n";
+        return false;
+    }
+
+
+    gamepad = SDL_OpenGamepad(0);
+
+    
+
+    isRunning = true;
+    return true;
+}
+
+void Game::HandleEvents() {
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {        
+            if (event.key.key == SDLK_ESCAPE) {
+                isRunning = false;
+            }
+    }
+}
+
+void Game::Update() {
+    Uint64 now = SDL_GetTicks();
+    fdata.deltaTime = (now - fdata.lastTime) / 1000.0f; //seconds
+    fdata.lastTime = now;
+
+    //Time scale
+    fdata.scaledDeltaTime = fdata.deltaTime * fdata.timeScale;
+
+    //update all gos
+    for (GameObject* go : gameObjects) {
+        go->Update(fdata.deltaTime,fdata.scaledDeltaTime);
+    }
+
+
+    //delay to fps target
+    fdata.frameStart = SDL_GetTicks();
+    fdata.framecnt++;
+
+    fdata.frameTime = SDL_GetTicks() - fdata.frameStart;
+
+    if (fdata.frameTime < fdata.frameDelay) {
+        SDL_Delay(fdata.frameDelay - fdata.frameTime);
+    }
+}
+
+void Game::Render() {
+
+    //green B)
+    SDL_SetRenderDrawColor(renderer, 50, 150, 50, 255);
+    SDL_RenderClear(renderer);
+
+    for (GameObject* go : gameObjects) {
+        go->Render();
+    }
+
+    SDL_RenderPresent(renderer);
+}
+
+void Game::Quit() {
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+}
+
+
+```
+</details>
