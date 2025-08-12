@@ -117,7 +117,73 @@ check against our referenced example obstacle, and if overlapping, shove our rec
 
 ## Camera
 
+Making a camera is actually just about modifying the rendered rect before displaying it, imagine a rect within a rect, the inner one being the camera view.
+Rendering the game world under this rect is the same as shifting the objects in the world by the cameras coordinates.
+
+<img src="images/asuperclearcameradescription.PNG" width="50%">
+
 ### Camera class
+
+We start by making new camera class, for this example we wont bother with resolution, we're just demoing how the camera works.
+We will save a camera instance, and pass it into our game.render function, since we do our rendering logic on the gameobject level.
+
+<details>
+<summary>Camera.cpp</summary>
+
+ ```cpp
+
+#pragma once
+
+#include <SDL3/SDL.h>
+
+class Camera {
+public:
+    Camera(float x, float y)
+        : x(x), y(y) {}
+
+    void Move(float dx, float dy) {
+        x += dx;
+        y += dy;
+    }
+    SDL_FRect WorldToScreen(const SDL_FRect& worldRect) const {
+        return {
+            worldRect.x - x,
+            worldRect.y - y,
+            worldRect.w,
+            worldRect.h
+        };
+    }
+
+private:
+    float x, y;
+};
+
+
+
+```
+</details>
+<details>
+<summary>Camera.cpp</summary>
+
+ ```cpp
+
+
+void GameObject::Render(const Camera& cam) {
+
+    SDL_FRect screenRect = cam.worldToScreen(rect);
+
+    if (texture)
+        SDL_RenderTexture(renderer, texture, NULL, &screenRect);
+    else
+        SDL_RenderFillRect(renderer, &screenRect);
+}
+
+
+
+```
+</details>
+
+All our gameobject will now be offset by our camera position while rendering, while still retaining thier real worldposition, logically.
 
 ### Manageing Position
 
