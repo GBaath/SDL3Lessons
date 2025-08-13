@@ -296,7 +296,7 @@ In our main.cpp, we will construct and init our audio player, load an audio file
 Don't forget to call AudioPlyaer::Quit() when closing the program.
 
 <details>
-<summary>Camera.cpp</summary>
+<summary>main.cpp</summary>
 
  ```cpp
 
