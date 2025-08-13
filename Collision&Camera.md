@@ -120,7 +120,7 @@ check against our referenced example obstacle, and if overlapping, shove our rec
 Making a camera is actually just about modifying the rendered rect before displaying it, imagine a rect within a rect, the inner one being the camera view.
 Rendering the game world under this rect is the same as shifting the objects in the world by the cameras coordinates.
 
-<img src="images/asuperclearcameradescription.PNG" width="50%">
+<img src="images/asuperclearcameradescription.png" width="50%">
 
 ### Camera class
 
@@ -185,10 +185,15 @@ void GameObject::Render(const Camera& cam) {
 
 All our gameobject will now be offset by our camera position while rendering, while still retaining thier real worldposition, logically.
 
-### Manageing Position
-
 ## Audio Playback
+
+In order to play audio we need another plugin, just like SDL_image. If you have stolen the precompiled libraries from lesson one, all that's needed is adding the header in the #includes.
+As of writing this, the SDL_mixer addon is still very much in development, thus, it might be a bit problematic to find good sources.
+My best advice is to trust your gut feeling and read the internal documentation in the header file.
 
 ## SFX
 
-##Music
+Current objective: play audio.
+We will do this by creating a new audioplayer class, initalizing mixers, defining load and play logic, and hooking into to our main file.
+
+
