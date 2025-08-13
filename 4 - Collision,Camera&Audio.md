@@ -1,4 +1,4 @@
-# Lesson 4 – Collision Detection, Camera Movement & Audio Playback
+# Lesson 4 – Collision, Camera & Audio
 
 ---
 
