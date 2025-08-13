@@ -7,7 +7,7 @@
 
 ---
 
-## Wth Is SDL3?
+## What Is SDL3?
 
 Simple DirectMedia Layer is a library made to provide access to hardware components.
 For our purposes, a tool to skip the boring parts of making a game engine.
