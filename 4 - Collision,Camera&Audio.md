@@ -1,4 +1,6 @@
 # Lesson 4 – Collision, Camera & Audio
+<img src="https://media1.tenor.com/m/hQBDO_SuMvoAAAAd/usa-in-bolt-camera-man.gif" width="100%">
+
 
 ---
 
