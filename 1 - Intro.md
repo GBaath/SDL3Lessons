@@ -21,7 +21,7 @@ For our purposes, a tool to skip the boring parts of making a game engine.
 - Audio Playback
 - Input Handling
 - Multithreading & Timers
-- Netwworking (We'll skip this, but its here)
+- Networking
 - Extentions/Plugins
 - Headaches
 - Making you a pro coder
@@ -162,9 +162,9 @@ But since that's a pain to go through, we can leech the code from mmozeiko and [
 
 ## What’s Next
 
-- **Lesson 2**: Graphics and input 
-- **Lesson 3**: Collision and timers
-- **Lesson 4**:  Camera, Audio & files
+- **Lesson 2**: Graphics & input 
+- **Lesson 3**: Files & framerate 
+- **Lesson 4**: Collision, Camera & Audio
 
 ---
 
