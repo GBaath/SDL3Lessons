@@ -20,7 +20,7 @@
 
 ### Render pipeline
 
-Unlike complete game engines where we get premade for us, we have to manually manage all textures ourselves.
+Unlike complete game engines where we get this premade for us, we have to manually manage all textures ourselves.
 That means loading files, declaring textures to render, where to place them on the screen, preform any modifications, and finally presenting the backbuffer.
 
 <details>
@@ -73,7 +73,7 @@ In this example, we never actually move or modify the sprite in anyway, so we wo
 
 ### Managing textures
 
-Its not enough to just show a sprite, we need to know how to mess with it a bit.
+It's not enough to just show a sprite, we need to know how to mess with it a bit.
 We can obviously move the location by tweaking the x & y values on the FRect.
 
 SDL_FRect{x, y, 64, 64}
@@ -287,7 +287,7 @@ Not much more to add, except needing to initialize the gamepad system.
 
 ## Very Optional Assignment B)
 
-Make the lil' sprite move
+Make the lil' sprite move.
 
 <img src="images/imnotseeingenoughmovement.gif" width="25%">
 
